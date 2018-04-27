@@ -102,6 +102,15 @@ int main(void)
 
         /* Add your code for implementing the shell's logic here */
 
+        int pid = fork();
+
+        if (pid == 0) {
+          execvp(args[0], args);
+          exit(1);
+        } else {
+          wait(NULL);
+        }
+
     }
 
     return 0;
